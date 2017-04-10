@@ -1,7 +1,9 @@
 package com.jinstabot;
 
 import com.beust.jcommander.Parameter;
+import com.beust.jcommander.converters.FileConverter;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +29,9 @@ public class Args {
 
     @Parameter(names = "-comments", description = "Comments you want to paste", variableArity = true)
     private List<String> comments = new ArrayList<>();
+
+    @Parameter(names = "-file", converter = FileConverter.class)
+    private File file;
 
     @Parameter(names = "--help", help = true)
     private boolean help;
@@ -85,5 +90,13 @@ public class Args {
 
     public void setHelp(boolean help) {
         this.help = help;
+    }
+
+    public File getFile() {
+        return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
     }
 }

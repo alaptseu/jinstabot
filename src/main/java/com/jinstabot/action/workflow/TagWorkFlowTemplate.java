@@ -29,9 +29,10 @@ public abstract class TagWorkFlowTemplate extends ActionAdaptor {
                 List<WebElement> toLikeElements = getDriver().findElements(By.xpath("//a[@role = 'button']/span[text()='Like']"));
                 List<WebElement> likedElements = getDriver().findElements(By.xpath("//a[@role = 'button']/span[text()='Unlike']"));
                 if (toLikeElements.size() == 1) {
-                    doLike(toLikeElements.get(0));
-                    doComment(toLikeElements.get(0));
-                    doFollow(toLikeElements.get(0));
+                    WebElement likeElement = toLikeElements.get(0);
+                    doLike(likeElement);
+                    doComment(likeElement);
+                    doFollow(likeElement);
                 } else if (likedElements.size() == 1) {
                     doUnlike(likedElements.get(0));
                 }
