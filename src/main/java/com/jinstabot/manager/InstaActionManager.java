@@ -1,7 +1,7 @@
 package com.jinstabot.manager;
 
 import com.jinstabot.action.GoToAction;
-import com.jinstabot.action.TagWorkflowAction;
+import com.jinstabot.action.workflow.TagWorkflowAction;
 import com.jinstabot.action.LoginAction;
 import com.jinstabot.context.DefaultContext;
 

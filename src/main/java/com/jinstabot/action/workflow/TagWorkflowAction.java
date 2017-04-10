@@ -1,4 +1,4 @@
-package com.jinstabot.action;
+package com.jinstabot.action.workflow;
 
 import com.jinstabot.action.workflow.TagWorkFlowTemplate;
 import com.jinstabot.context.Context;
@@ -47,7 +47,7 @@ public class TagWorkflowAction extends TagWorkFlowTemplate {
 
     @Override
     public void doLike(WebElement webElement) throws InterruptedException {
-        JavascriptExecutor jse = (JavascriptExecutor) getDriver();
+        JavascriptExecutor jse = getJavascriptExecutor();
         jse.executeScript("document.getElementsByClassName('" + webElement.getAttribute("class") + "')[0].click()");
         Thread.sleep(timeout());
     }

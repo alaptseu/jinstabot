@@ -38,7 +38,7 @@ public abstract class TagWorkFlowTemplate extends ActionAdaptor {
         }
     }
 
-    public String getRandomComment() {
+    protected String getRandomComment() {
         try {
             return context.getComments().get((new Random()).nextInt(context.getComments().size()));
         }

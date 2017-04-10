@@ -3,6 +3,7 @@ package com.jinstabot.action;
 import com.jinstabot.context.Context;
 import com.jinstabot.context.Credentials;
 import com.jinstabot.context.IGCredentials;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -18,6 +19,10 @@ public abstract class ActionAdaptor implements Action{
 
     protected WebDriver getDriver() {
         return context.getDriver();
+    }
+
+    protected JavascriptExecutor getJavascriptExecutor(){
+        return (JavascriptExecutor) getDriver();
     }
 
     protected Credentials getCredentials(){
