@@ -15,7 +15,7 @@ public class LoginAction extends ActionAdaptor{
     }
 
     @Override
-    public void execute() throws InterruptedException {
+    public void execute(CallBack callBack) throws InterruptedException {
         WebElement signUpLink = getDriver().findElement(By.className("_fcn8k"));
         signUpLink.click();
 

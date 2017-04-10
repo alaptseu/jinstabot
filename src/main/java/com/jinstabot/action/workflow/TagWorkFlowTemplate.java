@@ -1,6 +1,7 @@
 package com.jinstabot.action.workflow;
 
 import com.jinstabot.action.ActionAdaptor;
+import com.jinstabot.action.CallBack;
 import com.jinstabot.context.Context;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -19,7 +20,7 @@ public abstract class TagWorkFlowTemplate extends ActionAdaptor {
     }
 
     @Override
-    public void execute() throws InterruptedException {
+    public void execute(CallBack callBack) throws InterruptedException {
         for (String tag : context.getTags()) {
             Set<String> links = getTagLinks(tag);
             for (String url : links) {
@@ -34,6 +35,9 @@ public abstract class TagWorkFlowTemplate extends ActionAdaptor {
                 } else if (likedElements.size() == 1) {
                     doUnlike(likedElements.get(0));
                 }
+            }
+            if (callBack != null) {
+                callBack.callback();
             }
         }
     }

@@ -15,7 +15,7 @@ public class GoToAction extends ActionAdaptor{
     }
 
     @Override
-    public void execute() {
+    public void execute(CallBack callBack) {
         getDriver().get(url);
     }
 }

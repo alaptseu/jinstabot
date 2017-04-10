@@ -1,11 +1,11 @@
 package com.jinstabot.action.workflow;
 
-import com.jinstabot.action.workflow.TagWorkFlowTemplate;
 import com.jinstabot.context.Context;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+
 import java.util.List;
 import java.util.Set;
 

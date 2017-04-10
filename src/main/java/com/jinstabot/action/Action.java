@@ -5,7 +5,7 @@ package com.jinstabot.action;
  */
 public interface Action {
 
-    void execute() throws InterruptedException;
+    void execute(CallBack callBack) throws InterruptedException;
 
     default long timeout(){
         return 3000;

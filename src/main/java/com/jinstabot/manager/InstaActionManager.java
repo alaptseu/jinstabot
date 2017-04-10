@@ -19,10 +19,16 @@ public class InstaActionManager {
     }
 
     public void run() throws InterruptedException {
-        new GoToAction(context, INSTA_URL).execute();
+        new GoToAction(context, INSTA_URL).execute(() -> {
+
+        });
         if (context.isLogin()) {
-            new LoginAction(context).execute();
+            new LoginAction(context).execute(() -> {
+
+            });
         }
-        new TagWorkflowAction(context).execute();
+        new TagWorkflowAction(context).execute(() -> {
+
+        });
     }
 }
