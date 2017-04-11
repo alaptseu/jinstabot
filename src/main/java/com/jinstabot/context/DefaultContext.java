@@ -25,8 +25,6 @@ public final class DefaultContext implements Context{
 
     private IGCredentials credentials;
 
-    private Boolean login = Boolean.TRUE;
-
     private WebDriver driver;
 
     private Set<String> tags;
@@ -38,7 +36,6 @@ public final class DefaultContext implements Context{
             throw new IllegalArgumentException("No arguments specified");
         }
         initCredentials(args.getUsername(), args.getPassword());
-        this.login = args.isLogin();
         initDriver(args.getDriver());
         this.tags = new HashSet<>(args.getTags());
         this.comments = new ArrayList<>(args.getComments());
@@ -49,7 +46,6 @@ public final class DefaultContext implements Context{
             throw new IllegalArgumentException("No properties specified");
         }
         initCredentials(properties.getProperty("username"), properties.getProperty("password"));
-        this.login = Boolean.valueOf(properties.getProperty("login"));
         initDriver(properties.getProperty("driver"));
         this.tags = Stream.of(properties.getProperty("tags"))
             .map(String::trim)
@@ -77,10 +73,6 @@ public final class DefaultContext implements Context{
 
     public Credentials getCredentials() {
         return credentials;
-    }
-
-    public Boolean isLogin() {
-        return login;
     }
 
     public WebDriver getDriver() {

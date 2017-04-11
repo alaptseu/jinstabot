@@ -16,8 +16,6 @@ public interface Context {
 
     WebDriver getDriver();
 
-    Boolean isLogin();
-
     Set<String> getTags();
 
     List<String> getComments();

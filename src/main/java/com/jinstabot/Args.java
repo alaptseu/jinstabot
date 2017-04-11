@@ -18,9 +18,6 @@ public class Args {
     @Parameter(names = "-password", description = "instagram password", required = true)
     private String password;
 
-    @Parameter(names = "-login", description = "Should login?",  arity = 1)
-    private boolean login = true;
-
     @Parameter(names = "-driver", description = "Path to driver", required = true)
     private String driver;
 
@@ -50,14 +47,6 @@ public class Args {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public boolean isLogin() {
-        return login;
-    }
-
-    public void setLogin(boolean login) {
-        this.login = login;
     }
 
     public String getDriver() {

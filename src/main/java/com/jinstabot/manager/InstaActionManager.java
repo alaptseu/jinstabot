@@ -11,7 +11,7 @@ import org.apache.commons.logging.LogFactory;
 /**
  * @author Alex L.
  */
-public class InstaActionManager implements CallBack{
+public class InstaActionManager implements CallBack {
 
     private Log log = LogFactory.getLog(getClass());
 
@@ -23,9 +23,7 @@ public class InstaActionManager implements CallBack{
 
     public void run() throws InterruptedException {
         log.info("Starting...");
-        if (context.isLogin()) {
-            new LoginAction(context).execute(this);
-        }
+        new LoginAction(context).execute(this);
         new TagWorkflowAction(context).execute(this);
     }
 
