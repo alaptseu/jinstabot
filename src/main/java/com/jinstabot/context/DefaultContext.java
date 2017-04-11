@@ -2,6 +2,7 @@ package com.jinstabot.context;
 
 import com.jinstabot.Args;
 import com.jinstabot.context.IGCredentials.CredentialsBuilder;
+import org.apache.commons.lang3.NotImplementedException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -92,5 +93,25 @@ public final class DefaultContext implements Context{
 
     public List<String> getComments() {
         return comments;
+    }
+
+    @Override
+    public String getXpath(String key) {
+        throw new NotImplementedException("Implement me");
+    }
+
+    @Override
+    public String getTagName(String key) {
+        throw new NotImplementedException("Implement me");
+    }
+
+    @Override
+    public String getClassName(String key) {
+        throw new NotImplementedException("Implement me");
+    }
+
+    @Override
+    public String getName(String key) {
+        throw new NotImplementedException("Implement me");
     }
 }

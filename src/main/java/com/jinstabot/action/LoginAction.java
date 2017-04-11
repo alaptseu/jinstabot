@@ -10,12 +10,15 @@ import org.openqa.selenium.interactions.Actions;
  */
 public class LoginAction extends ActionAdaptor{
 
+    private final String INSTA_URL = "https://www.instagram.com/";
+
     public LoginAction(Context context) {
         super(context);
     }
 
     @Override
     public void execute(CallBack callBack) throws InterruptedException {
+        goTo(INSTA_URL);
         WebElement signUpLink = getDriver().findElement(By.className("_fcn8k"));
         signUpLink.click();
 

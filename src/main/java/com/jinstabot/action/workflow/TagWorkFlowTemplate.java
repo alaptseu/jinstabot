@@ -3,11 +3,13 @@ package com.jinstabot.action.workflow;
 import com.jinstabot.action.ActionAdaptor;
 import com.jinstabot.action.CallBack;
 import com.jinstabot.context.Context;
+import com.jinstabot.data.TagData;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -31,25 +33,35 @@ public abstract class TagWorkFlowTemplate extends ActionAdaptor {
             log.info(format("Tag - %s: ", tag));
             Set<String> links = getTagLinks(tag);
             log.info(format("Number of links %s: ", links.size()));
+            Set<TagData> tagDataSet = new HashSet<>(links.size());
             for (String url : links) {
-                log.info(url);
-                getDriver().get(url);
-                Thread.sleep(timeout());
-                List<WebElement> toLikeElements = getDriver().findElements(By.xpath("//a[@role = 'button']/span[text()='Like']"));
-                List<WebElement> likedElements = getDriver().findElements(By.xpath("//a[@role = 'button']/span[text()='Unlike']"));
-                if (toLikeElements.size() == 1) {
-                    WebElement likeElement = toLikeElements.get(0);
-                    doLike(likeElement);
-                    doComment(likeElement);
-                    doFollow(likeElement);
-                } else if (likedElements.size() == 1) {
-                    doUnlike(likedElements.get(0));
-                }
+                tagDataSet.add(handleLink(url, tag));
             }
             if (callBack != null) {
-                callBack.callback();
+                callBack.onComplete(tagDataSet);
             }
         }
+    }
+
+    protected TagData handleLink(String url, String tag) throws InterruptedException {
+        log.info(url);
+        TagData tagData = new TagData();
+        tagData.setTag(tag);
+        tagData.setLink(url);
+        goTo(url);
+        List<WebElement> toLikeElements = getDriver().findElements(By.xpath("//a[@role = 'button']/span[text()='Like']"));
+        List<WebElement> likedElements = getDriver().findElements(By.xpath("//a[@role = 'button']/span[text()='Unlike']"));
+        if (toLikeElements.size() == 1) {
+            WebElement likeElement = toLikeElements.get(0);
+            tagData.setLikeElement(likeElement);
+            doLike(likeElement);
+            doComment(likeElement);
+            doFollow(likeElement);
+        } else if (likedElements.size() == 1) {
+            tagData.setLikedElement(likedElements.get(0));
+            doUnlike(likedElements.get(0));
+        }
+        return tagData;
     }
 
     protected String getRandomComment() {

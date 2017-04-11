@@ -28,4 +28,10 @@ public abstract class ActionAdaptor implements Action{
     protected Credentials getCredentials(){
         return context.getCredentials();
     }
+
+
+    protected void goTo(String url) throws InterruptedException {
+        getDriver().get(url);
+        Thread.sleep(timeout());
+    }
 }

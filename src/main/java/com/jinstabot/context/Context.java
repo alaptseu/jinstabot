@@ -22,4 +22,12 @@ public interface Context {
 
     List<String> getComments();
 
+    String getXpath(String key);
+
+    String getTagName(String key);
+
+    String getClassName(String key);
+
+    String getName(String key);
+
 }
