@@ -1,6 +1,8 @@
 package com.jinstabot.action.workflow;
 
 import com.jinstabot.context.Context;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -16,6 +18,8 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
  * @author Alex L.
  */
 public class TagWorkflowAction extends TagWorkFlowTemplate {
+
+    private Log log = LogFactory.getLog(getClass());
 
     private final String TAG_URL = "https://www.instagram.com/explore/tags/";
 

@@ -5,6 +5,7 @@ import com.jinstabot.context.IGCredentials.CredentialsBuilder;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -12,13 +13,14 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.stream.Stream;
 
+import static com.jinstabot.utils.FileUtils.loadProperties;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 
 /**
  * @author Alex L.
  */
-public class DefaultContext implements Context{
+public final class DefaultContext implements Context{
 
     private IGCredentials credentials;
 
@@ -54,6 +56,10 @@ public class DefaultContext implements Context{
         this.comments = Stream.of(properties.getProperty("comments"))
             .map(String::trim)
             .collect(toList());
+    }
+
+    public DefaultContext(final File file) {
+        this(loadProperties(file));
     }
 
     private void initDriver(final String driverPath) {

@@ -3,6 +3,8 @@ package com.jinstabot.action.workflow;
 import com.jinstabot.action.ActionAdaptor;
 import com.jinstabot.action.CallBack;
 import com.jinstabot.context.Context;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -10,10 +12,14 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
+import static java.lang.String.format;
+
 /**
  * @author Alex L.
  */
 public abstract class TagWorkFlowTemplate extends ActionAdaptor {
+
+    private Log log = LogFactory.getLog(getClass());
 
     protected TagWorkFlowTemplate(Context context) {
         super(context);
@@ -22,8 +28,11 @@ public abstract class TagWorkFlowTemplate extends ActionAdaptor {
     @Override
     public void execute(CallBack callBack) throws InterruptedException {
         for (String tag : context.getTags()) {
+            log.info(format("Tag - %s: ", tag));
             Set<String> links = getTagLinks(tag);
+            log.info(format("Number of links %s: ", links.size()));
             for (String url : links) {
+                log.info(url);
                 getDriver().get(url);
                 Thread.sleep(timeout());
                 List<WebElement> toLikeElements = getDriver().findElements(By.xpath("//a[@role = 'button']/span[text()='Like']"));
