@@ -16,6 +16,13 @@
         </developer>
     </developers>
 
+    <licenses>
+        <license>
+            <name>GNU</name>
+            <url>https://github.com/alaptseu/jinstabot/blob/master/LICENSE</url>
+        </license>
+    </licenses>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <selenium.version>3.0.1</selenium.version>
@@ -74,6 +81,7 @@
                     <maxmem>256m</maxmem>
                     <!-- aggregated reports for multi-module projects -->
                     <aggregate>true</aggregate>
+                    <check/>
                 </configuration>
             </plugin>
 

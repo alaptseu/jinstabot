@@ -1,5 +1,6 @@
 package com.jinstabot.manager;
 
+import com.jinstabot.action.CallBack;
 import com.jinstabot.action.GoToAction;
 import com.jinstabot.action.workflow.TagWorkflowAction;
 import com.jinstabot.action.LoginAction;
@@ -8,7 +9,7 @@ import com.jinstabot.context.DefaultContext;
 /**
  * @author Alex L.
  */
-public class InstaActionManager {
+public class InstaActionManager implements CallBack{
 
     private final String INSTA_URL = "https://www.instagram.com/";
 
@@ -19,16 +20,15 @@ public class InstaActionManager {
     }
 
     public void run() throws InterruptedException {
-        new GoToAction(context, INSTA_URL).execute(() -> {
-
-        });
+        new GoToAction(context, INSTA_URL).execute(this);
         if (context.isLogin()) {
-            new LoginAction(context).execute(() -> {
-
-            });
+            new LoginAction(context).execute(this);
         }
-        new TagWorkflowAction(context).execute(() -> {
+        new TagWorkflowAction(context).execute(this);
+    }
 
-        });
+    @Override
+    public void callback() {
+
     }
 }
