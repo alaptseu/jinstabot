@@ -34,6 +34,9 @@ public class TagWorkflowAction extends TagWorkFlowTemplate {
 
     @Override
     public void doFollow(WebElement webElement) throws InterruptedException {
+        if (!context.isFollow()){
+            return;
+        }
         WebElement followButton = getDriver().findElement(By.xpath("//article/header/span/button"));
         Thread.sleep(timeout());
         if (followButton.getText().startsWith("Follow")) {

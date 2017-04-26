@@ -15,6 +15,7 @@ import java.util.Set;
 import java.util.stream.Stream;
 
 import static com.jinstabot.utils.FileUtils.loadProperties;
+import static java.lang.Boolean.parseBoolean;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 
@@ -31,6 +32,8 @@ public final class DefaultContext implements Context{
 
     private List<String> comments;
 
+    private boolean follow;
+
     public DefaultContext(final Args args) {
         if (args == null) {
             throw new IllegalArgumentException("No arguments specified");
@@ -39,6 +42,7 @@ public final class DefaultContext implements Context{
         initDriver(args.getDriver());
         this.tags = new HashSet<>(args.getTags());
         this.comments = new ArrayList<>(args.getComments());
+        this.follow = args.isFollow();
     }
 
     public DefaultContext(final Properties properties) {
@@ -53,6 +57,7 @@ public final class DefaultContext implements Context{
         this.comments = Stream.of(properties.getProperty("comments"))
             .map(String::trim)
             .collect(toList());
+        this.follow = parseBoolean(properties.getProperty("follow"));
     }
 
     public DefaultContext(final File file) {
@@ -105,5 +110,9 @@ public final class DefaultContext implements Context{
     @Override
     public String getName(String key) {
         throw new NotImplementedException("Implement me");
+    }
+
+    public boolean isFollow() {
+        return follow;
     }
 }

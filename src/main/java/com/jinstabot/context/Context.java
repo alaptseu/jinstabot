@@ -28,4 +28,6 @@ public interface Context {
 
     String getName(String key);
 
+    boolean isFollow();
+
 }

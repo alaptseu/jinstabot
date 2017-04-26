@@ -30,6 +30,9 @@ public class Args {
     @Parameter(names = "-file", description = "Properties loaded form the file will have higher priority than other", converter = FileConverter.class)
     private File file;
 
+    @Parameter(names = "-follow", description = "if set to true accounts will be followed", arity = 1)
+    private boolean follow;
+
     @Parameter(names = "--help", help = true)
     private boolean help;
 
@@ -87,5 +90,13 @@ public class Args {
 
     public void setFile(File file) {
         this.file = file;
+    }
+
+    public boolean isFollow() {
+        return follow;
+    }
+
+    public void setFollow(boolean follow) {
+        this.follow = follow;
     }
 }
