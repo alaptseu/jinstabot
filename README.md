@@ -22,16 +22,16 @@ If you're using Maven in your project, then you can integrate jInstagram by addi
       <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
       <releases>
        <enabled>false</enabled>
-       </releases>
-         <snapshots>
-            <enabled>true</enabled>
-         </snapshots>
+      </releases>
+      <snapshots>
+       <enabled>true</enabled>
+      </snapshots>
   </repository>
 </repositories>
 
 <dependency>
    <groupId>com.github.alaptseu</groupId>
-    <artifactId>jinstabot</artifactId>
-    <version>1.0-SNAPSHOT</version>
+   <artifactId>jinstabot</artifactId>
+   <version>1.0-SNAPSHOT</version>
 </dependency>
 ```
