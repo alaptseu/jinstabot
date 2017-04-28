@@ -9,3 +9,29 @@
 > Automation Script for “farming” Likes, Comments and Followers on Instagram. 
 
 Implemented in Java using the Selenium module.
+
+* Maven Integration
+
+If you're using Maven in your project, then you can integrate jInstagram by adding the following dependency in your pom.xml
+	
+```xml
+<repositories>
+  <repository>
+     <id>oss.snapshots</id>
+     <name>OSS Sonatype Snapshot Repository</name>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+      <releases>
+       <enabled>false</enabled>
+       </releases>
+         <snapshots>
+            <enabled>true</enabled>
+         </snapshots>
+  </repository>
+</repositories>
+
+<dependency>
+   <groupId>com.github.alaptseu</groupId>
+    <artifactId>jinstabot</artifactId>
+    <version>1.0-SNAPSHOT</version>
+</dependency>
+```
