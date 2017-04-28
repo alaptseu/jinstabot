@@ -20,8 +20,26 @@
         <license>
             <name>GNU</name>
             <url>https://github.com/alaptseu/jinstabot/blob/master/LICENSE</url>
+            <distribution>repo</distribution>
         </license>
     </licenses>
+
+    <scm>
+        <url>https://github.com/alaptseu/jinstabot</url>
+        <connection>scm:git:git@github.com:alaptseu/jinstabot.git</connection>
+        <developerConnection>scm:git:git@github.com:alaptseu/jinstabot.git</developerConnection>
+    </scm>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -85,9 +103,29 @@
                 </configuration>
             </plugin>
 
+            <plugin>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <version>0.11</version>
+                <configuration>
+                    <message>Generated javadoc for JInstabot ${project.version}</message>
+                    <outputDirectory>javadoc</outputDirectory>
+                    <path>javadoc/${project.version}</path>
+                    <merge>true</merge>
+                    <noJekyll>true</noJekyll>
+                    <server>github</server>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <phase>site-deploy</phase>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
-
-
 
 </project>
