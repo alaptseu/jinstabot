@@ -33,6 +33,9 @@ public class Args {
     @Parameter(names = "-follow", description = "if set to true accounts will be followed", arity = 1)
     private boolean follow;
 
+    @Parameter(names = "-comment", description = "if set to true posts will be commented", arity = 1)
+    private boolean comment;
+
     @Parameter(names = "--help", help = true)
     private boolean help;
 
@@ -98,5 +101,13 @@ public class Args {
 
     public void setFollow(boolean follow) {
         this.follow = follow;
+    }
+
+    public boolean isComment() {
+        return comment;
+    }
+
+    public void setComment(boolean comment) {
+        this.comment = comment;
     }
 }

@@ -46,6 +46,9 @@ public class TagWorkflowAction extends TagWorkFlowTemplate {
 
     @Override
     public void doComment(WebElement webElement) throws InterruptedException {
+        if (!context.isComment()){
+            return;
+        }
         WebElement commentInput = getDriver().findElement(By.xpath("//input[@placeholder = 'Add a comment…']"));
         commentInput.sendKeys(getRandomComment());
         commentInput.submit();

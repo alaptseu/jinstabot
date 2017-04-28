@@ -30,4 +30,6 @@ public interface Context {
 
     boolean isFollow();
 
+    boolean isComment();
+
 }

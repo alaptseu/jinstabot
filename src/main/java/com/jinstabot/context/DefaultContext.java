@@ -34,6 +34,8 @@ public final class DefaultContext implements Context{
 
     private boolean follow;
 
+    private boolean comment;
+
     public DefaultContext(final Args args) {
         if (args == null) {
             throw new IllegalArgumentException("No arguments specified");
@@ -43,6 +45,7 @@ public final class DefaultContext implements Context{
         this.tags = new HashSet<>(args.getTags());
         this.comments = new ArrayList<>(args.getComments());
         this.follow = args.isFollow();
+        this.comment = args.isComment();
     }
 
     public DefaultContext(final Properties properties) {
@@ -58,6 +61,7 @@ public final class DefaultContext implements Context{
             .map(String::trim)
             .collect(toList());
         this.follow = parseBoolean(properties.getProperty("follow"));
+        this.comment = parseBoolean(properties.getProperty("comment"));
     }
 
     public DefaultContext(final File file) {
@@ -114,5 +118,10 @@ public final class DefaultContext implements Context{
 
     public boolean isFollow() {
         return follow;
+    }
+
+    @Override
+    public boolean isComment() {
+        return comment;
     }
 }
