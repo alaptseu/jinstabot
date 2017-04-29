@@ -20,7 +20,7 @@ Implemented in Java using the Selenium module.
 Parameters can be specified in *.property file as well and passed to application as an argument,
 for `example`: java -jar jinstabot-1.0-SNAPSHOT-jar-with-dependencies.jar -f <PATH TO YOUR *.property file>
 
-Please note if -f (file) is specified AND any other parameters they will be ignored as file properties has higher priority.
+Please note if -f (file) is specified AND any other option will be ignored.
 
 **List of available options**:  
     _-comment_ - if set to true posts will be commented. Default: false  

@@ -27,7 +27,7 @@ public class Args {
     @Parameter(names = "-comments", description = "Comments you want to paste", variableArity = true)
     private List<String> comments = new ArrayList<>();
 
-    @Parameter(names = "-file", description = "Properties loaded form the file will have higher priority than other", converter = FileConverter.class)
+    @Parameter(names = "-file", description = "Properties loaded from the file will have higher priority than other", converter = FileConverter.class)
     private File file;
 
     @Parameter(names = "-follow", description = "if set to true accounts will be followed", arity = 1)
