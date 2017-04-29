@@ -27,7 +27,7 @@ Please note if -f (file) is specified AND any other option will be ignored.
     _-comments_ - comments you want to insert. One or many.  
     _-driver_ - path to driver. This is mandatory parameter.   
     _-file_ - properties file,if specified  has higher priority than other options.  
-    _-follow_ - if set to true other accounts will be followed. Default: false
+    _-follow_ - if set to true other accounts will be followed. Default: false.  
     _-username_ - instagram username, mandatory parameter.  
     _-password_ - instagram password, guess what it's mandatory as well   
     _-tags_ - tags you want to hit, one or many can be passed.  
