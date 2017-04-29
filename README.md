@@ -59,7 +59,7 @@ If you're using Maven in your project, then you can integrate jInstagram by addi
 </dependency>
 ```
 
-You can start using api like  
+Examples for API usage:  
 `Properties props = ...//load properties with options`  
 `new InstaActionManager(new DefaultContext(props)).manager.run();`  
 
