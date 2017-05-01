@@ -10,8 +10,6 @@ import org.openqa.selenium.interactions.Actions;
  */
 public class LoginAction extends ActionAdaptor{
 
-    private final String INSTA_URL = "https://www.instagram.com/";
-
     public LoginAction(Context context) {
         super(context);
     }

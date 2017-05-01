@@ -2,6 +2,7 @@ package com.jinstabot.manager;
 
 import com.jinstabot.action.CallBack;
 import com.jinstabot.action.LoginAction;
+import com.jinstabot.action.AccountAction;
 import com.jinstabot.action.workflow.TagWorkflowAction;
 import com.jinstabot.context.DefaultContext;
 import com.jinstabot.data.Data;
@@ -24,6 +25,7 @@ public class InstaActionManager implements CallBack {
     public void run() throws InterruptedException {
         log.info("Starting...");
         new LoginAction(context).execute(this);
+        new AccountAction(context).execute(this);
         new TagWorkflowAction(context).execute(this);
     }
 

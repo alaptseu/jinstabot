@@ -11,6 +11,8 @@ import org.openqa.selenium.WebDriver;
  */
 public abstract class ActionAdaptor implements Action{
 
+    protected final static String INSTA_URL = "https://www.instagram.com/";
+
     protected final Context context;
 
     protected ActionAdaptor(Context context) {
