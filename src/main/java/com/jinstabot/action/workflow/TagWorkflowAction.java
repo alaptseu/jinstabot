@@ -49,7 +49,7 @@ public class TagWorkflowAction extends TagWorkFlowTemplate {
         if (!context.isComment()){
             return;
         }
-        WebElement commentInput = getDriver().findElement(By.xpath("//input[@placeholder = 'Add a comment…']"));
+        WebElement commentInput = getDriver().findElement(By.xpath("//textarea[@placeholder = \"Add a comment…\"]"));
         commentInput.sendKeys(getRandomComment());
         commentInput.submit();
         Thread.sleep(timeout());
